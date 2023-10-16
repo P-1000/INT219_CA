@@ -15,6 +15,7 @@ import { AuthComponent } from './component/auth/auth.component';
 // import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import {Routes , RouterModule} from '@angular/router';
 import { HomelandComponent } from './component/homeland/homeland.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 
 
@@ -32,7 +33,8 @@ import { HomelandComponent } from './component/homeland/homeland.component';
 
 const routesConfig: Routes = [
     { path: '', component: HomelandComponent },
-    { path: 'login', component: AuthComponent }
+    { path: 'login', component: AuthComponent },
+    {path : 'dashboard' , component : DashboardComponent}
 ];
 
 @NgModule({
@@ -46,6 +48,7 @@ const routesConfig: Routes = [
     ContactComponent,
     AuthComponent,
     HomelandComponent,
+    DashboardComponent,
 
   ],
   imports: [
