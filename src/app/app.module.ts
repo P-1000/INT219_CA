@@ -11,23 +11,26 @@ import { ServicesComponent } from './component/services/services.component';
 import { TestimonialsComponent } from './component/testimonials/testimonials.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { AuthComponent } from './component/auth/auth.component';
-// import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-// import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import {Routes , RouterModule} from '@angular/router';
 import { HomelandComponent } from './component/homeland/homeland.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { CalComponent } from './component/cal/cal.component';
+import { TestComponent } from './component/test/test.component';
+import { PageComponent } from './component/dashboard/page/page.component';
+import { NavComponent } from './component/dashboard/nav/nav.component';
+import { ProfileComponent } from './component/dashboard/profile/profile.component';
 
 
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDkR4MESgjh20z9yaM1s1AXX99qquDn2ss",
-//   authDomain: "sanfoundry-sc.firebaseapp.com",
-//   projectId: "sanfoundry-sc",
-//   storageBucket: "sanfoundry-sc.appspot.com",
-//   messagingSenderId: "527997111994",
-//   appId: "1:527997111994:web:35a22b150a14f2e3c1bc83",
-//   measurementId: "G-8Q04XQCCSR"
-// };
+const firebaseConfig = {
+  apiKey: "AIzaSyDkR4MESgjh20z9yaM1s1AXX99qquDn2ss",
+  authDomain: "sanfoundry-sc.firebaseapp.com",
+  projectId: "sanfoundry-sc",
+  storageBucket: "sanfoundry-sc.appspot.com",
+  messagingSenderId: "527997111994",
+  appId: "1:527997111994:web:35a22b150a14f2e3c1bc83",
+  measurementId: "G-8Q04XQCCSR"
+};
 
 
 
@@ -49,6 +52,11 @@ const routesConfig: Routes = [
     AuthComponent,
     HomelandComponent,
     DashboardComponent,
+    CalComponent,
+    TestComponent,
+    PageComponent,
+    NavComponent,
+    ProfileComponent,
 
   ],
   imports: [
