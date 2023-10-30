@@ -19,6 +19,9 @@ import { TestComponent } from './component/test/test.component';
 import { PageComponent } from './component/dashboard/page/page.component';
 import { NavComponent } from './component/dashboard/nav/nav.component';
 import { ProfileComponent } from './component/dashboard/profile/profile.component';
+import { CardsComponent } from './component/dashboard/cards/cards.component';
+import { ContentComponent } from './component/dashboard/content/content.component';
+import { CateComponent } from './component/dashboard/cate/cate.component';
 
 
 
@@ -57,6 +60,9 @@ const routesConfig: Routes = [
     PageComponent,
     NavComponent,
     ProfileComponent,
+    CardsComponent,
+    ContentComponent,
+    CateComponent,
 
   ],
   imports: [
