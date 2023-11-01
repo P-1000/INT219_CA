@@ -27,6 +27,8 @@ import { BsecComponent } from './component/apmt/bsec/bsec.component';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 import {HttpClient , HttpHeaders} from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './data.service';
+
 
 const firebaseConfig = {
   // Your Firebase config here

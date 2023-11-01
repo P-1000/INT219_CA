@@ -8,6 +8,10 @@ import { DataService } from 'src/app/data.service';
   styleUrls: ['./bsec.component.css']
 })
 export class BsecComponent implements OnInit {
+
+  searchQuery: string = '';
+  searchResults: any[] = [];
+
   selectedService: string = '';
   selectedProvider: string = '';
   appointmentDateTime: string = '';
@@ -52,17 +56,21 @@ export class BsecComponent implements OnInit {
     );
   }
 
-  getArtist() {
+  getArtist(searchQuery: string) {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.access_tok}`
     });
 
-    this.http.get('https://api.spotify.com/v1/search?q=dua&type=artist', { headers }).subscribe(
+    const apiUrl = `https://api.spotify.com/v1/search?q=${searchQuery}&type=track`;
+
+    this.http.get(apiUrl, { headers }).subscribe(
       (response: any) => {
-        console.log(response);
+        this.searchResults = response.tracks.items;
+        console.log(this.searchResults);
       },
       (error) => {
         console.error('Spotify artist search error:', error);
+        this.searchResults = [];
       }
     );
   }
@@ -74,8 +82,11 @@ export class BsecComponent implements OnInit {
     console.log('Your Name:', this.yourName);
     console.log('Email:', this.email);
     console.log('Phone Number:', this.phoneNumber);
+  }
 
-    // Call the getArtist function
-    this.getArtist();
+  searchArtist() {
+    if (this.searchQuery) {
+      this.getArtist(this.searchQuery);
+    }
   }
 }
