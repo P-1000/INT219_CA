@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,  ElementRef, Renderer2 } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DataService } from 'src/app/data.service';
 
@@ -8,6 +8,8 @@ import { DataService } from 'src/app/data.service';
   styleUrls: ['./bsec.component.css']
 })
 export class BsecComponent implements OnInit {
+
+  isPlaying: boolean = false;
 
   searchQuery: string = '';
   searchResults: any[] = [];
@@ -21,7 +23,7 @@ export class BsecComponent implements OnInit {
 
   access_tok = '';
 
-  constructor(private dataService: DataService, private http: HttpClient) {}
+  constructor(private dataService: DataService, private http: HttpClient , private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit() {
     this.authenticateWithSpotify();
@@ -88,5 +90,21 @@ export class BsecComponent implements OnInit {
     if (this.searchQuery) {
       this.getArtist(this.searchQuery);
     }
+  }
+
+
+
+  toggleAudio(previewUrl: string) {
+    const audioElement = this.el.nativeElement.querySelector('audio');
+
+    if (this.isPlaying) {
+      audioElement.pause();
+    } else {
+      audioElement.src = previewUrl;
+      audioElement.load();
+      audioElement.play();
+    }
+
+    this.isPlaying = !this.isPlaying;
   }
 }
