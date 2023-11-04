@@ -25,9 +25,13 @@ import { ApmtComponent } from './component/apmt/apmt.component';
 import { HomeComponent } from './component/apmt/home/home.component';
 import { BsecComponent } from './component/apmt/bsec/bsec.component';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
-import {HttpClient , HttpHeaders} from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './data.service';
+import { ProductsComponent } from './component/products/products.component';
+import { ProductCardComponent } from './component/products/product-card/product-card.component';
+import { ProductDetailsComponent } from './component/products/product-details/product-details.component';
+import { CheckoutComponent } from './component/products/checkout/checkout.component';
+
+import { ToastrModule } from 'ngx-toastr';
 
 
 const firebaseConfig = {
@@ -40,6 +44,9 @@ const routesConfig: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'appointment', component: ApmtComponent },
   { path: 'appointment/book', component: ApmtComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'products/:id', component: ProductDetailsComponent },
+  { path: 'checkout/:id', component: CheckoutComponent }
 ];
 
 @NgModule({
@@ -65,6 +72,10 @@ const routesConfig: Routes = [
     ApmtComponent,
     HomeComponent,
     BsecComponent,
+    ProductsComponent,
+    ProductCardComponent,
+    ProductDetailsComponent,
+    CheckoutComponent,
 
   ],
   imports: [
@@ -72,10 +83,11 @@ const routesConfig: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routesConfig),
-    FormsModule, 
-    HttpClientModule
+    FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
